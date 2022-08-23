@@ -1,13 +1,13 @@
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
 import axios from "axios";
 // import useUserState from "./useUserState";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HandleAxiosTypes, handleUseEffectAxiosTypes } from "../interfaces/Axios";
 
-export default function useAxios(auth = true) {
+export function useAxios(auth = true) {
 //   const userState = useUserState();
-  const [res, setRes] = useState();
-  const [working, setWorking] = useState(true);
+//   const [res, setRes] = useState();
+//   const [working, setWorking] = useState(true);
   const history = useNavigate();
   const location = useLocation();
 
@@ -43,7 +43,7 @@ export default function useAxios(auth = true) {
 
   const handleAxios = useCallback(
     async ({
-      path,
+      path = '/',
       method,
       body = {},
       postFetch = () => {},
@@ -64,8 +64,8 @@ export default function useAxios(auth = true) {
         case "get":
           try {
             const response = await axios.get(url, body);
-            setWorking(false);
-            setRes(response.data);
+            // setWorking(false);
+            // setRes(response.data);
             postFetch(response.data);
             if (setWork) setWork(false);
           } catch (e) {
@@ -77,8 +77,8 @@ export default function useAxios(auth = true) {
         case "post":
           try {
             const response = await axios.post(url, body);
-            setRes(response.data);
-            setWorking(false);
+            // setRes(response.data);
+            // setWorking(false);
             if (setWork) setWork(false);
             postFetch(response.data);
           } catch (e) {
@@ -93,8 +93,8 @@ export default function useAxios(auth = true) {
               url,
               body,
             );
-            setRes(response.data);
-            setWorking(false);
+            // setRes(response.data);
+            // setWorking(false);
             if (setWork) setWork(false);
             postFetch(response.data);
           } catch (e) {
@@ -120,7 +120,7 @@ export default function useAxios(auth = true) {
   await handleAxios(configAxios)
   }, [handleAxios])
 
-  return { res, working, handleAxios, handleUseEffectAxios };
+  return { handleAxios, handleUseEffectAxios };
 }
 
 // export const mapConfig = (configProp, notify) => {
