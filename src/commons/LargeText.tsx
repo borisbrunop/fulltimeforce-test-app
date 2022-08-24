@@ -7,11 +7,6 @@ interface LargeTextTypes {
 }
 
 export function LargeText({ maxLength, cutValue, value, className = '' }: LargeTextTypes) {
-    // const regex = useMemo(() => 
-    // new RegExp( '.{1,' + cutValue + '}', 'g' )
-    // ,[cutValue]); 
-
-    // const finalValue =  value.match(regex) ? value.match(regex) : '';
     function split(str: string, index: number) {
         const result = [str.slice(0, index), str.slice(index)];
         return result;

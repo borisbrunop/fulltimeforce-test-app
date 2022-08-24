@@ -3,17 +3,18 @@ import { MaxWidthDiv } from "./MaxWidthDiv"
 
 interface ManageLoadScreenTypes {
   loading: boolean
-  children: JSX.Element
+  children: JSX.Element,
+  className?: string
 }
 
-export function ManageLoadScreen({ loading, children }: ManageLoadScreenTypes) {
+export function ManageLoadScreen({ loading, children, className = '' }: ManageLoadScreenTypes) {
   return (
     <>
       {
         loading ? (
           <Loader />
         ) : (
-          <MaxWidthDiv>
+          <MaxWidthDiv classNameInner={`pb-24 ${className}`}>
             {children}
           </MaxWidthDiv>
         )}

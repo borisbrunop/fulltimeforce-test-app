@@ -1,4 +1,3 @@
-import React from 'react'
 import { Puff } from 'react-loader-spinner'
 
 interface LoaderTypes {
@@ -11,9 +10,21 @@ interface LoaderTypes {
 
 export function Loader({ size = '80', radius = 1, color = '#4fa94d', visable = false, type = 'screen' }: LoaderTypes) {
     return (
-    <>
-        {type === 'screen' ? (
-            <div className='w-full h-full flex justify-center items-center'>
+        <>
+            {type === 'screen' ? (
+                <div className='w-full h-full flex justify-center items-center'>
+                    <Puff
+                        height={size}
+                        width={size}
+                        radius={radius}
+                        color={color}
+                        ariaLabel="puff-loading"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        visible={true}
+                    />
+                </div>
+            ) : (
                 <Puff
                     height={size}
                     width={size}
@@ -22,21 +33,9 @@ export function Loader({ size = '80', radius = 1, color = '#4fa94d', visable = f
                     ariaLabel="puff-loading"
                     wrapperStyle={{}}
                     wrapperClass=""
-                    visible={true}
+                    visible={visable}
                 />
-            </div>
-        ) : (
-            <Puff
-                height={size}
-                width={size}
-                radius={radius}
-                color={color}
-                ariaLabel="puff-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={visable}
-            />
-        )}
-    </>
+            )}
+        </>
     )
 }

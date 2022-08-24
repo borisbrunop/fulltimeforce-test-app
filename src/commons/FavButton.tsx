@@ -1,18 +1,20 @@
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 interface FavButtonTypes {
-    favOnClick: () => void,
-    notFavOnClick: () => void,
-    fav: boolean
+    fav: boolean,
+    handleOnNotFav: () => void,
+    handleOnFav: () => void
 }
 
-export function FavButton({ favOnClick, notFavOnClick, fav }: FavButtonTypes) {
+export function FavButton({ fav, handleOnFav, handleOnNotFav }: FavButtonTypes) {
+
+
     return (
         <>
             {fav ? (
-                <AiFillHeart className='cursor-pointer transition-all text-primary text-3xl' onClick={notFavOnClick} />
+                <AiFillHeart className='cursor-pointer transition-all text-primary text-3xl' onClick={() => handleOnNotFav()} />
             ) : (
-                <AiOutlineHeart className='cursor-pointer transition-all text-primary text-3xl' onClick={favOnClick} />
+                <AiOutlineHeart className='cursor-pointer transition-all text-primary text-3xl' onClick={() => handleOnFav()} />
             )}
         </>
     )

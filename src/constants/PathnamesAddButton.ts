@@ -1,0 +1,1 @@
+export const PATHNAMES_ADD_BUTTON = ['/product/edit']

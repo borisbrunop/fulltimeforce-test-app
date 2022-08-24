@@ -1,5 +1,3 @@
-import React from "react";
-
 interface MaxWidthDivTypes {
     className?: string,
     children: JSX.Element,

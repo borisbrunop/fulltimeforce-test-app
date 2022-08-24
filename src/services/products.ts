@@ -1,52 +1,49 @@
-import { useEffect, useState } from 'react'
-import {useAxios} from '../hooks'
-import { ProductsTypes } from '../interfaces'
+import { useCallback, useEffect, useState } from "react";
+import { useAxios } from "../hooks";
+import { ProductsTypes } from "../interfaces";
 
-export function Products(id?: number) {
-    const [products, setProducts] = useState<ProductsTypes[] | []>();
-    const [product, setProduct] = useState<ProductsTypes | null>();
-    const {handleAxios} = useAxios();
+interface ProductServiceTypes {
+  id?: number;
+  search?: string;
+}
 
-    const handleCall = async (recall?: boolean) => {
+export function Products({ id, search }: ProductServiceTypes) {
+  const [products, setProducts] = useState<ProductsTypes[] | []>();
+  const [product, setProduct] = useState<ProductsTypes | null>();
+  const { handleAxios } = useAxios();
 
-        // const getProducts = async () => {
-            if(recall){
-                setProducts([])
-                setProduct(null)
-            }
-            if(!id){
-                const configAxiosProducts = {
-                    path: '/products',
-                    method: 'get',
-                    postFetch: (res: ProductsTypes[]) => {
-                        setProducts(res)
-                    }
-                }
-                await handleAxios(configAxiosProducts)
-            }else{
-                const configAxiosOneProduct = {
-                    path: `/products/${id}`,
-                    method: 'get',
-                    postFetch: (res: ProductsTypes) => {
-                        setProduct(res)
-                    }
-                }
-                await handleAxios(configAxiosOneProduct)
-            }
-        // }
-        // const getOneProduct = async () => {
-        // }
-    }
+  const handleCall = useCallback(
+    async (recall?: boolean) => {
+      if (recall) {
+        setProducts([]);
+        setProduct(null);
+      }
+      if (!id) {
+        const configAxiosProducts = {
+          path: `/products/search/${search || ""}`,
+          method: "get",
+          postFetch: (res: ProductsTypes[]) => {
+            setProducts(res);
+          },
+        };
+        await handleAxios(configAxiosProducts);
+      } else {
+        const configAxiosOneProduct = {
+          path: `/products/${id}`,
+          method: "get",
+          postFetch: (res: ProductsTypes) => {
+            setProduct(res);
+          },
+        };
+        await handleAxios(configAxiosOneProduct);
+      }
+    },
+    [id, handleAxios, search]
+  );
 
+  useEffect(() => {
+    handleCall();
+  }, [search, handleCall]);
 
-    useEffect(() => {
-        handleCall()
-        // if(id){
-        //     getOneProduct()
-        // }else{
-        //     getProducts()
-        // }
-    },[])
-
-  return {products, product, recall: handleCall}
+  return { products, product, recall: handleCall };
 }

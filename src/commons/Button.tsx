@@ -1,21 +1,21 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 
 interface ButtonTypes {
-    onClick: () => void,
-    className?: string,
-    children: JSX.Element,
-    type?: 'light' | 'dark' | 'cancel',
-    disable?: boolean,
-    onClickDisable?: () => void
+  onClick: () => void,
+  className?: string,
+  children: JSX.Element,
+  type?: 'light' | 'dark' | 'cancel',
+  disable?: boolean,
+  onClickDisable?: () => void
 }
 
-export default function Button({
+export function Button({
   onClick,
   className = "px-5 rounded-full",
   children,
   type,
   disable = false,
-  onClickDisable = () => {},
+  onClickDisable = () => { },
 }: ButtonTypes) {
   const color = useMemo(() => {
     switch (type) {

@@ -1,0 +1,1 @@
+export const PATHNAMES_BUTTON_COMMITS = ['/commits']
