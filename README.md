@@ -35,11 +35,15 @@ $ yarn install
 
 ####    Create a new file called '.env' to store all the enviroment variables, copy and paste the next lines inside the file .env file do not forget to save the file before you move on to the next step.
 
+```bash
+
 REACT_APP_BACKEND_URL=http://localhost:4000
+
+```
 
 
 ## 4 - Run the App
-####    Run this script the same way you did in step 3 to start the proyect in localhost. Before running this script please make sure that you dont have anything running in the localhost:3000 port and you have the web-server repository running on localhost:4000 locally [link to the web-werver repository](https://github.com/borisbrunop/fultimeforce-test)
+####    Run this script the same way you did in step 2 to start the proyect in localhost. Before running this script please make sure that you dont have anything running in the localhost:3000 port and you have the web-server repository running on localhost:4000 locally [link to the web-werver repository](https://github.com/borisbrunop/fultimeforce-test)
 
 ```bash
 # for npm users
