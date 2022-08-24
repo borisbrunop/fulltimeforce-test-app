@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# STEPS TO RUN THIS APP LOCALLY
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1 - Open a terminal and run this sequence of commands to clone the repository and to open it on Visual Studio Code. 
+    If you use another code editor do not run the second command and open the file in the code editor of your preference.
 
-## Available Scripts
+- Copy the repository, this will create a new folder with the name of your preference
+### `git clone https://github.com/borisbrunop/fulltimeforce-test-app.git 'name to your preference'`
+- Open Visual Studio Code in the folder that you created before
+### `cd 'name that you assign before' && code .`
 
-In the project directory, you can run:
+1 - Once you open the folder with your code editor run this commands in the terminal of the cloned respository 
+    to change the branch to develop and to install all the dependencies. Please run the commands in the given order
 
-### `npm start`
+-To change branch
+### `git checkout develop`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-To install all the dependencies, this will create a new folder called 'node_modules'
+### `npm i -a`
+    or 
+### `yarn install`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3 - Create a new file called '.env' to store all the enviroment variables and paste the next line inside the file
 
-### `npm test`
+REACT_APP_BACKEND_URL=http://localhost:4000
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+4 - Run this script the same way you did in step 3 to start the proyect in localhost. 
+    Before running this script please make sure that you dont have anything running 
+    in the localhost:3000 port and you have the web-server repository running on localhost:4000 locally
+    [link to the web-werver repository](https://github.com/borisbrunop/fultimeforce-test)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `npm run start`
+    or
+### `yarn run start`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+You are all set to review my technical abilities, thank you for the opportunity, have a nice day!!
